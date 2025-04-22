@@ -1,7 +1,12 @@
 import 'movie_dto.dart';
 
 class MovieListResponseDto {
-  MovieListResponseDto({num? page, List<MovieDto>? results, num? totalPages, num? totalResults}) {
+  MovieListResponseDto({
+    num? page,
+    List<MovieDto>? results,
+    num? totalPages,
+    num? totalResults,
+  }) {
     _page = page;
     _results = results;
     _totalPages = totalPages;

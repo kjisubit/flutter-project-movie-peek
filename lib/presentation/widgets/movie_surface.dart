@@ -6,6 +6,7 @@ class MovieSurface extends StatelessWidget {
   final VoidCallback? onTap;
   final BorderRadius borderRadius;
   final EdgeInsets padding;
+  final Color? backgroundColor;
 
   const MovieSurface({
     super.key,
@@ -13,20 +14,20 @@ class MovieSurface extends StatelessWidget {
     this.onTap,
     this.borderRadius = BorderRadius.zero,
     this.padding = EdgeInsets.zero,
+    this.backgroundColor,
   });
 
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).extension<CustomThemeColors>()!;
-    const splashOpacity = 0.2;
 
     return Material(
-      color: colors.surface,
+      color: backgroundColor ?? colors.surface,
       borderRadius: borderRadius,
       child: InkWell(
         onTap: onTap,
         borderRadius: borderRadius,
-        splashColor: colors.onBackgroundActive.withAlpha((255 * splashOpacity).toInt()),
+        splashColor: colors.onBackgroundActive.withAlpha((255 * 0.2).toInt()),
         highlightColor: Colors.transparent,
         child: Padding(padding: padding, child: child),
       ),

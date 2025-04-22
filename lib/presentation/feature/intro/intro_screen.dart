@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
-import 'package:movie_peek/presentation/widgets/custom_text_button.dart';
+import 'package:movie_peek/presentation/widgets/custom_button.dart';
 import 'package:movie_peek/routes/route_list.dart';
 
 class IntroScreen extends StatelessWidget {
@@ -18,10 +18,10 @@ class IntroScreen extends StatelessWidget {
             const Spacer(),
             Align(
               alignment: Alignment.center,
-              child: CustomTextButton(
-                label: AppLocalizations.of(context)!.goToHome,
+              child: MoviePeekButton(
                 onPressed: () => context.push('/${RouteList.home}'),
                 radius: 50,
+                child: Text(AppLocalizations.of(context)!.goToHome),
               ),
             ),
             const Spacer(),

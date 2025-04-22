@@ -70,8 +70,10 @@ class CustomThemeColors extends ThemeExtension<CustomThemeColors> {
     if (other is! CustomThemeColors) return this;
     return CustomThemeColors(
       background: Color.lerp(background, other.background, t)!,
-      onBackgroundActive: Color.lerp(onBackgroundActive, other.onBackgroundActive, t)!,
-      onBackgroundInactive: Color.lerp(onBackgroundInactive, other.onBackgroundInactive, t)!,
+      onBackgroundActive:
+          Color.lerp(onBackgroundActive, other.onBackgroundActive, t)!,
+      onBackgroundInactive:
+          Color.lerp(onBackgroundInactive, other.onBackgroundInactive, t)!,
       surface: Color.lerp(surface, other.surface, t)!,
       primary: Color.lerp(primary, other.primary, t)!,
       onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,

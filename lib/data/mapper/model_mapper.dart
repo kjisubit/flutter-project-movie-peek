@@ -16,7 +16,7 @@ class ModelMapper {
     );
   }
 
-  static MovieList toDomain(MovieListResponseDto dto) {
+  static MovieList mapMovieListDtoToDomain(MovieListResponseDto dto) {
     final results = dto.results ?? [];
     final movies = results.map(mapMovieDtoToDomain).toList();
 

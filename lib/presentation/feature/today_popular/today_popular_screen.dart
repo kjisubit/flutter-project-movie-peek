@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_peek/domain/model/movie.dart';
 import 'package:movie_peek/injector.dart';
 import 'package:movie_peek/presentation/blocs/popular/popular_movies_bloc.dart';
 import 'package:movie_peek/presentation/blocs/popular/popular_movies_event.dart';
 import 'package:movie_peek/presentation/blocs/popular/popular_movies_state.dart';
-import 'package:movie_peek/presentation/widgets/custom_text.dart';
+import 'package:movie_peek/presentation/feature/today_popular/poster_with_overlay.dart';
 
-class PopularScreen extends StatelessWidget {
-  const PopularScreen({super.key});
+class TodayPopularScreen extends StatelessWidget {
+  const TodayPopularScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => injector<PopularMoviesBloc>()..add(FetchPopularMovies(page: 1)),
-      child: const _PopularScreen(),
+      create:
+          (context) =>
+              injector<PopularMoviesBloc>()..add(FetchPopularMovies(page: 1)),
+      child: const _TodayPopularScreen(),
     );
   }
 }
 
-class _PopularScreen extends StatelessWidget {
-  const _PopularScreen();
+class _TodayPopularScreen extends StatelessWidget {
+  const _TodayPopularScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +31,13 @@ class _PopularScreen extends StatelessWidget {
           if (state is PopularMoviesLoading) {
             return const Center(child: CircularProgressIndicator());
           } else if (state is PopularMoviesSuccess) {
-            return _buildMovieDetails(state.movies.movies ?? []);
+            final movies = state.movies.movies ?? [];
+            if (movies.isEmpty) {
+              return const SizedBox();
+            } else {
+              final movie = movies[0];
+              return PosterWithOverlay(movie: movie);
+            }
           } else if (state is PopularMoviesFailure) {
             return _buildError(state.exception);
           }
@@ -40,17 +47,7 @@ class _PopularScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildMovieDetails(List<Movie> movies) {
-    return ListView.builder(
-      itemCount: movies.length,
-      itemBuilder: (context, index) {
-        final movie = movies[index];
-        return ListTile(title: CustomText(movie.title ?? 'No Title'));
-      },
-    );
-  }
-
   Widget _buildError(Exception exception) {
-    return Center(child: CustomText('Error: $exception'));
+    return Center(child: Text('Error: $exception'));
   }
 }

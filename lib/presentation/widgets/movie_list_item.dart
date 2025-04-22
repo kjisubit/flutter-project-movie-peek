@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_peek/constants/api_constants.dart';
-import 'package:movie_peek/presentation/widgets/custom_text.dart';
 
 import 'movie_surface.dart';
 
@@ -9,7 +8,11 @@ class MovieListItem extends StatelessWidget {
   final String title;
   final String posterUrl;
 
-  const MovieListItem({super.key, required this.title, required this.posterUrl});
+  const MovieListItem({
+    super.key,
+    required this.title,
+    required this.posterUrl,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +25,10 @@ class MovieListItem extends StatelessWidget {
           children: [
             ClipOval(
               child: CachedNetworkImage(
-                imageUrl: '${ApiConstants.tmdbPosterUrl}${ApiConstants.posterXLarge}$posterUrl',
-                placeholder: (context, url) => const CircularProgressIndicator(),
+                imageUrl:
+                    '${ApiConstants.tmdbPosterUrl}${ApiConstants.posterXLarge}$posterUrl',
+                placeholder:
+                    (context, url) => const CircularProgressIndicator(),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
                 width: 100,
                 height: 100,
@@ -31,7 +36,7 @@ class MovieListItem extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 30),
-            Expanded(child: CustomText(title, maxLines: 2, overflow: TextOverflow.ellipsis)),
+            Expanded(child: Text(title)),
           ],
         ),
       ),

@@ -5,10 +5,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_peek/presentation/blocs/navigation/navigation_bloc.dart';
 import 'package:movie_peek/presentation/blocs/navigation/navigation_event.dart';
 import 'package:movie_peek/presentation/blocs/navigation/navigation_state.dart';
-import 'package:movie_peek/presentation/feature/home/popular_screen.dart';
-import 'package:movie_peek/presentation/feature/home/upcoming_screen.dart';
-import 'package:movie_peek/presentation/widgets/custom_text.dart';
+import 'package:movie_peek/presentation/feature/upcoming/upcoming_screen.dart';
 import 'package:movie_peek/theme/custom_theme_colors.dart';
+
+import '../today_popular/today_popular_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -21,7 +21,9 @@ class HomeScreen extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             body: SafeArea(child: _buildBody(context, state.index)),
-            bottomNavigationBar: SizedBox(child: _buildBottomNavigationBar(context, state.index)),
+            bottomNavigationBar: SizedBox(
+              child: _buildBottomNavigationBar(context, state.index),
+            ),
           );
         },
       ),
@@ -32,11 +34,11 @@ class HomeScreen extends StatelessWidget {
 Widget _buildBody(BuildContext context, int index) {
   switch (index) {
     case 0:
-      return PopularScreen();
+      return TodayPopularScreen();
     case 1:
       return UpcomingScreen();
     default:
-      return PopularScreen();
+      return TodayPopularScreen();
   }
 }
 
@@ -52,12 +54,18 @@ Widget _buildBottomNavigationBar(BuildContext context, int index) {
           children: [
             SvgPicture.asset(
               'assets/svg/icon-star.svg',
-              colorFilter: ColorFilter.mode(themeColors.onBackgroundInactive, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(
+                themeColors.onBackgroundInactive,
+                BlendMode.srcIn,
+              ),
             ),
             const SizedBox(height: 3),
-            CustomText(
+            Text(
               AppLocalizations.of(context)!.popular,
-              color: themeColors.onBackgroundInactive,
+              style: TextStyle(
+                color: themeColors.onBackgroundInactive,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
@@ -66,17 +74,22 @@ Widget _buildBottomNavigationBar(BuildContext context, int index) {
           children: [
             SvgPicture.asset(
               'assets/svg/icon-star.svg',
-              colorFilter: ColorFilter.mode(themeColors.primary, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(
+                themeColors.primary,
+                BlendMode.srcIn,
+              ),
             ),
             const SizedBox(height: 3),
-            CustomText(
-              AppLocalizations.of(context)!.popular,
-              color: themeColors.primary,
-              fontWeight: FontWeight.bold,
+            Text(
+              AppLocalizations.of(context)!.todayPopular,
+              style: TextStyle(
+                color: themeColors.primary,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
-        label: AppLocalizations.of(context)!.popular,
+        label: 'today popular',
       ),
       BottomNavigationBarItem(
         icon: Column(
@@ -84,12 +97,18 @@ Widget _buildBottomNavigationBar(BuildContext context, int index) {
           children: [
             SvgPicture.asset(
               'assets/svg/icon-calendar.svg',
-              colorFilter: ColorFilter.mode(themeColors.onBackgroundInactive, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(
+                themeColors.onBackgroundInactive,
+                BlendMode.srcIn,
+              ),
             ),
             const SizedBox(height: 3),
-            CustomText(
+            Text(
               AppLocalizations.of(context)!.upcoming,
-              color: themeColors.onBackgroundInactive,
+              style: TextStyle(
+                color: themeColors.onBackgroundInactive,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
@@ -98,17 +117,22 @@ Widget _buildBottomNavigationBar(BuildContext context, int index) {
           children: [
             SvgPicture.asset(
               'assets/svg/icon-calendar.svg',
-              colorFilter: ColorFilter.mode(themeColors.primary, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(
+                themeColors.primary,
+                BlendMode.srcIn,
+              ),
             ),
             const SizedBox(height: 3),
-            CustomText(
+            Text(
               AppLocalizations.of(context)!.upcoming,
-              color: themeColors.primary,
-              fontWeight: FontWeight.bold,
+              style: TextStyle(
+                color: themeColors.primary,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
-        label: AppLocalizations.of(context)!.upcoming,
+        label: 'upcoming',
       ),
     ],
     currentIndex: index,

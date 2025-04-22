@@ -14,7 +14,7 @@ class MovieRepositoryImpl implements MovieRepository {
   Future<ApiResult<MovieList>> getPopularMovies({required int page}) async {
     try {
       final dto = await remoteDataSource.getPopularMovies(page: page);
-      final movies = ModelMapper.toDomain(dto);
+      final movies = ModelMapper.mapMovieListDtoToDomain(dto);
       return Success(movies);
     } on DioException catch (e) {
       return Error(Exception('DioException: $e'));
@@ -27,7 +27,7 @@ class MovieRepositoryImpl implements MovieRepository {
   Future<ApiResult<MovieList>> getUpcomingMovies({required int page}) async {
     try {
       final dto = await remoteDataSource.getUpcomingMovies(page: page);
-      final movies = ModelMapper.toDomain(dto);
+      final movies = ModelMapper.mapMovieListDtoToDomain(dto);
       return Success(movies);
     } on DioException catch (e) {
       return Error(Exception('DioException: $e'));
