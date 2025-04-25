@@ -22,7 +22,9 @@ void main() {
   test('getPopularMovies 호출 시 Success<MovieList> 리턴 여부 확인', () async {
     // Given: 초기 설정
     final testPage = 1;
-    final movieList = MovieList(movies: [Movie(id: 1, title: 'Test Movie', posterPath: '/test.jpg')]);
+    final movieList = MovieList(
+      movies: [Movie(id: 1, title: 'Test Movie', posterPath: '/test.jpg')],
+    );
     final emptyList = MovieList(movies: []);
     final expectedResult = Success<MovieList>(movieList);
 

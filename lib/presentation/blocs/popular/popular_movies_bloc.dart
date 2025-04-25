@@ -1,9 +1,10 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_peek/domain/model/api_result.dart';
 import 'package:movie_peek/domain/model/movie_list.dart';
 import 'package:movie_peek/domain/usecase/movie_use_case.dart';
 import 'package:movie_peek/presentation/blocs/popular/popular_movies_event.dart';
 import 'package:movie_peek/presentation/blocs/popular/popular_movies_state.dart';
+
+import '../../../domain/model/api_result.dart';
 
 class PopularMoviesBloc extends Bloc<PopularMoviesEvent, PopularMoviesState> {
   final MovieUseCase movieUseCase;

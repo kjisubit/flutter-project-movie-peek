@@ -13,7 +13,3 @@ class Error<T> extends ApiResult<T> {
 
   Error(this.exception);
 }
-
-class Loading<T> extends ApiResult<T> {
-  const Loading();
-}
