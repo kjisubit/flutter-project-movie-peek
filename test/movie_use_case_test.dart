@@ -20,26 +20,31 @@ void main() {
   });
 
   test('getPopularMovies 호출 시 Success<MovieList> 리턴 여부 확인', () async {
-    // Given: 초기 설정
+    // Given: 테스트 데이터 설정
     final testPage = 1;
     final movieList = MovieList(
       movies: [Movie(id: 1, title: 'Test Movie', posterPath: '/test.jpg')],
     );
-    final emptyList = MovieList(movies: []);
     final expectedResult = Success<MovieList>(movieList);
 
-    // When: getPopularMovies 호출 시
+    // Given: Mock 동작 설정
     provideDummy<ApiResult<MovieList>>(Success(MovieList(movies: [])));
-    when(mockRepository.getPopularMovies(page: testPage)).thenAnswer((_) async => expectedResult);
+    when(mockRepository.getPopularMovies(page: testPage))
+        .thenAnswer((_) async => expectedResult);
 
-    // Then: getPopularMovies 호출 성공 여부 확인
+    // When: UseCase의 getPopularMovies 메서드 호출
     final result = await useCase.getPopularMovies(page: testPage);
-    expect(result, isA<Success<MovieList>>());
-    expect((result as Success<MovieList>).data, movieList);
-    expect((result).data, isNot(emptyList));
 
-    // Then: getPopularMovies 동작 횟수 확인
+    // Then: 결과가 Success<MovieList> 타입인지 확인
+    expect(result, isA<Success<MovieList>>());
+
+    // Then: 반환된 데이터가 예상한 movieList와 동일한지 확인
+    expect((result as Success<MovieList>).data, movieList);
+
+    // Then: MockRepository의 getPopularMovies가 정확히 한 번 호출되었는지 확인
     verify(mockRepository.getPopularMovies(page: testPage)).called(1);
+
+    // Then: MockRepository에 더 이상 다른 상호작용이 없는지 확인
     verifyNoMoreInteractions(mockRepository);
   });
 }
