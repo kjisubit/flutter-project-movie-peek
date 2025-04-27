@@ -7,17 +7,19 @@ import 'movie_surface.dart';
 class MovieListItem extends StatelessWidget {
   final String title;
   final String posterUrl;
+  final VoidCallback onTap;
 
   const MovieListItem({
     super.key,
     required this.title,
     required this.posterUrl,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return MovieSurface(
-      onTap: () {},
+      onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(

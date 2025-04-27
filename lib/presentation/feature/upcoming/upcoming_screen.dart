@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_peek/domain/model/movie.dart';
 import 'package:movie_peek/injector.dart';
 import 'package:movie_peek/presentation/blocs/upcoming/upcoming_movies_bloc.dart';
 import 'package:movie_peek/presentation/blocs/upcoming/upcoming_movies_event.dart';
 import 'package:movie_peek/presentation/blocs/upcoming/upcoming_movies_state.dart';
+import 'package:movie_peek/presentation/feature/detail/detail_screen.dart';
 import 'package:movie_peek/presentation/widgets/movie_list_item.dart';
-
-import '../../../domain/model/movie.dart';
 
 class UpcomingScreen extends StatelessWidget {
   const UpcomingScreen({super.key});
@@ -85,6 +85,11 @@ class _UpcomingMoviesListState extends State<_UpcomingMoviesList> {
         return MovieListItem(
           title: movie.title ?? '',
           posterUrl: movie.posterPath ?? '',
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => DetailScreen(movie: movie)),
+            );
+          },
         );
       },
     );
