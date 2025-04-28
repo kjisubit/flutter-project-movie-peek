@@ -14,7 +14,7 @@ class TodayPopularScreen extends StatelessWidget {
     return BlocProvider(
       create:
           (context) =>
-              injector<PopularMoviesBloc>()..add(FetchPopularMovies(page: 1)),
+      injector<PopularMoviesBloc>()..add(FetchPopularMovies(page: 1)),
       child: const _TodayPopularScreen(),
     );
   }

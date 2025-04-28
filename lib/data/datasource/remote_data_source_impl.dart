@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:movie_peek/data/datasource/remote_data_source.dart';
 import 'package:movie_peek/data/dto/movie_list_response_dto.dart';
-import 'package:movie_peek/utils/LocaleManager.dart';
+import 'package:movie_peek/utils/locale_manager.dart';
 
 import '../../constants/api_constants.dart';
 

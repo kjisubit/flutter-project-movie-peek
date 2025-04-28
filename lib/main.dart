@@ -8,7 +8,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:movie_peek/routes/app_routes.dart';
 import 'package:movie_peek/theme/app_theme.dart';
-import 'package:movie_peek/utils/LocaleManager.dart';
+import 'package:movie_peek/utils/locale_manager.dart';
 
 import 'injector.dart';
 
