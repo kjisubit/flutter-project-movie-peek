@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:movie_peek/l10n/app_localizations.dart';
 import 'package:movie_peek/constants/api_constants.dart';
 import 'package:movie_peek/domain/model/movie.dart';
 import 'package:movie_peek/injector.dart';
