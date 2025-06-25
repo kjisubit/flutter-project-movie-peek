@@ -1,0 +1,9 @@
+{
+  "goToDetail": "상세 정보 보기",
+  "goToHome": "홈으로 이동",
+  "popular": "인기 영화",
+  "todayPopular": "오늘의 인기 영화",
+  "upcoming": "개봉 예정",
+  "noTitle": "제목 없음",
+  "noOverviewAvailable": "개요 데이터가 존재하지 않습니다."
+}

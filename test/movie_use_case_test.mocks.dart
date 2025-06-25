@@ -34,28 +34,32 @@ class MockMovieRepository extends _i1.Mock implements _i2.MovieRepository {
   }
 
   @override
-  _i3.Future<_i4.ApiResult<_i5.MovieList>> getPopularMovies({required int? page}) =>
+  _i3.Future<_i4.ApiResult<_i5.MovieList>> getPopularMovies({
+    required int? page,
+  }) =>
       (super.noSuchMethod(
-        Invocation.method(#getPopularMovies, [], {#page: page}),
-        returnValue: _i3.Future<_i4.ApiResult<_i5.MovieList>>.value(
-          _i6.dummyValue<_i4.ApiResult<_i5.MovieList>>(
-            this,
             Invocation.method(#getPopularMovies, [], {#page: page}),
-          ),
-        ),
-      )
-      as _i3.Future<_i4.ApiResult<_i5.MovieList>>);
+            returnValue: _i3.Future<_i4.ApiResult<_i5.MovieList>>.value(
+              _i6.dummyValue<_i4.ApiResult<_i5.MovieList>>(
+                this,
+                Invocation.method(#getPopularMovies, [], {#page: page}),
+              ),
+            ),
+          )
+          as _i3.Future<_i4.ApiResult<_i5.MovieList>>);
 
   @override
-  _i3.Future<_i4.ApiResult<_i5.MovieList>> getUpcomingMovies({required int? page}) =>
+  _i3.Future<_i4.ApiResult<_i5.MovieList>> getUpcomingMovies({
+    required int? page,
+  }) =>
       (super.noSuchMethod(
-        Invocation.method(#getUpcomingMovies, [], {#page: page}),
-        returnValue: _i3.Future<_i4.ApiResult<_i5.MovieList>>.value(
-          _i6.dummyValue<_i4.ApiResult<_i5.MovieList>>(
-            this,
             Invocation.method(#getUpcomingMovies, [], {#page: page}),
-          ),
-        ),
-      )
-      as _i3.Future<_i4.ApiResult<_i5.MovieList>>);
+            returnValue: _i3.Future<_i4.ApiResult<_i5.MovieList>>.value(
+              _i6.dummyValue<_i4.ApiResult<_i5.MovieList>>(
+                this,
+                Invocation.method(#getUpcomingMovies, [], {#page: page}),
+              ),
+            ),
+          )
+          as _i3.Future<_i4.ApiResult<_i5.MovieList>>);
 }
