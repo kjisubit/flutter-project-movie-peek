@@ -18,19 +18,22 @@ Future<void> main() async {
   final deviceLocale = PlatformDispatcher.instance.locale;
   LocaleManager().initialize(deviceLocale);
 
-  runApp(MyApp());
+  // Integration Test 수행 직전 라우터 초기화 작업을 위해 main() 내부에서 생성
+  final router = GoRouter(routes: goRoutes);
+
+  runApp(MyApp(router: router));
 }
 
-final GoRouter _router = GoRouter(routes: goRoutes);
-
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final GoRouter router;
+
+  const MyApp({super.key, required this.router});
 
   @override
   Widget build(BuildContext context) {
     _setStatusBarStyle(context);
     return MaterialApp.router(
-      routerConfig: _router,
+      routerConfig: router,
       title: 'Flutter Demo',
       theme: lightTheme,
       darkTheme: darkTheme,

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:movie_peek/l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:get_it/get_it.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:movie_peek/domain/model/api_result.dart';
 import 'package:movie_peek/domain/model/movie.dart';
 import 'package:movie_peek/domain/model/movie_list.dart';
 import 'package:movie_peek/domain/usecase/movie_use_case.dart';
 import 'package:movie_peek/injector.dart';
+import 'package:movie_peek/l10n/app_localizations.dart';
 import 'package:movie_peek/main.dart' as app;
 import 'package:movie_peek/presentation/widgets/movie_list_item.dart';
 import 'package:movie_peek/utils/locale_manager.dart';
@@ -15,6 +16,11 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('Navigation Tests', () {
+    // 각 테스트 수행 전 DI 초기화
+    setUp(() async {
+      await GetIt.instance.reset();
+    });
+
     testWidgets('오늘의 인기 영화를 상세 화면에서 확인', (WidgetTester tester) async {
       // Given: 앱 실행 및 초기화
       await app.main();

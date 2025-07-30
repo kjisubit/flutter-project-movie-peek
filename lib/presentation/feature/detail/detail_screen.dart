@@ -12,7 +12,7 @@ class DetailScreen extends StatelessWidget {
     final imageUrl = 'https://image.tmdb.org/t/p/w500${movie.posterPath}';
 
     return Scaffold(
-      appBar: AppBar(title: Text(movie.title ?? 'Movie Detail')),
+      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
