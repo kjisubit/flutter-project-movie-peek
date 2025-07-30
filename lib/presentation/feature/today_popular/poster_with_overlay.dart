@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movie_peek/l10n/app_localizations.dart';
 import 'package:movie_peek/constants/api_constants.dart';
 import 'package:movie_peek/domain/model/movie.dart';
@@ -96,10 +97,7 @@ Widget _buildOverlayContent(BuildContext context, Movie movie) {
       const SizedBox(height: 16),
       MoviePeekButton(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => DetailScreen(movie: movie)),
-          );
+          context.push('/detail/${movie.id}', extra: movie);
         },
         radius: 50,
         child: Text(AppLocalizations.of(context)!.goToDetail),
