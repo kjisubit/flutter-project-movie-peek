@@ -1,0 +1,32 @@
+name: Setup Flutter
+
+description: Setup Flutter and install dependencies
+
+inputs:
+  flutter-version:
+    description: 'Flutter version'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: ${{ inputs.flutter-version }}
+  
+    - name: Cache pub packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.pub-cache
+        key: pub-${{ runner.os }}-${{ hashFiles('**/pubspec.yaml') }}
+        restore-keys: |
+          pub-${{ runner.os }}-
+
+    - name: Check Flutter Version
+      run: flutter --version
+      shell: bash
+
+    - name: Install dependencies
+      run: flutter pub get
+      shell: bash
