@@ -1,0 +1,15 @@
+name: Setup Env File
+description: Create .env file for Flutter builds
+
+inputs:
+  tmdb-api-key:
+    required: true
+    description: TMDB API Key
+
+runs:
+  using: "composite"
+  steps:
+    - name: Create .env file
+      shell: bash
+      run: |
+        echo "TMDB_API_KEY=${{ inputs.tmdb-api-key }}" > .env
