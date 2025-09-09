@@ -1,4 +1,5 @@
 import 'package:movie_peek/domain/model/api_result.dart';
+import 'package:movie_peek/domain/model/movie.dart';
 import 'package:movie_peek/domain/model/movie_list.dart';
 import 'package:movie_peek/domain/repository/movie_repository.dart';
 
@@ -13,5 +14,9 @@ class MovieUseCase {
 
   Future<ApiResult<MovieList>> getUpcomingMovies({required int page}) async {
     return _movieRepository.getUpcomingMovies(page: page);
+  }
+
+  Future<ApiResult<Movie>> getMovieDetails({required int movieId}) async {
+    return _movieRepository.getMovieDetails(movieId: movieId);
   }
 }

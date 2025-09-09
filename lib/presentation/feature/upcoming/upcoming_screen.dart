@@ -6,7 +6,6 @@ import 'package:movie_peek/injector.dart';
 import 'package:movie_peek/presentation/blocs/upcoming/upcoming_movies_bloc.dart';
 import 'package:movie_peek/presentation/blocs/upcoming/upcoming_movies_event.dart';
 import 'package:movie_peek/presentation/blocs/upcoming/upcoming_movies_state.dart';
-import 'package:movie_peek/presentation/feature/detail/detail_screen.dart';
 import 'package:movie_peek/presentation/widgets/movie_list_item.dart';
 
 class UpcomingScreen extends StatelessWidget {
@@ -87,7 +86,7 @@ class _UpcomingMoviesListState extends State<_UpcomingMoviesList> {
           title: movie.title ?? '',
           posterUrl: movie.posterPath ?? '',
           onTap: () {
-            context.push('/detail/${movie.id}', extra: movie);
+            context.push('/details/${movie.id}', extra: movie);
           },
         );
       },

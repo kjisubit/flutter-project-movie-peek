@@ -9,7 +9,6 @@ import 'package:movie_peek/injector.dart';
 import 'package:movie_peek/presentation/blocs/image_load/image_load_bloc.dart';
 import 'package:movie_peek/presentation/blocs/image_load/image_load_event.dart';
 import 'package:movie_peek/presentation/blocs/image_load/image_load_state.dart';
-import 'package:movie_peek/presentation/feature/detail/detail_screen.dart';
 import 'package:movie_peek/presentation/widgets/custom_button.dart';
 import 'package:movie_peek/presentation/widgets/donut_chart_painter.dart';
 import 'package:movie_peek/utils/string_formatter.dart';
@@ -97,7 +96,7 @@ Widget _buildOverlayContent(BuildContext context, Movie movie) {
       const SizedBox(height: 16),
       MoviePeekButton(
         onPressed: () {
-          context.push('/detail/${movie.id}', extra: movie);
+          context.push('/details/${movie.id}', extra: movie);
         },
         radius: 50,
         child: Text(AppLocalizations.of(context)!.goToDetail),

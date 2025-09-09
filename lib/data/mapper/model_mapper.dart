@@ -1,3 +1,4 @@
+import 'package:movie_peek/data/dto/movie_details/movie_details_dto.dart';
 import 'package:movie_peek/data/dto/movie_dto.dart';
 import 'package:movie_peek/data/dto/movie_list_response_dto.dart';
 import 'package:movie_peek/domain/model/movie.dart';
@@ -25,6 +26,18 @@ class ModelMapper {
       totalPages: dto.totalPages?.toInt(),
       totalResults: dto.totalResults?.toInt(),
       movies: movies,
+    );
+  }
+
+  static Movie mapMovieDetailsDtoToDomain(MovieDetailsDto dto) {
+    return Movie(
+      id: dto.id?.toInt(),
+      overview: dto.overview,
+      popularity: dto.popularity?.toDouble(),
+      posterPath: dto.posterPath,
+      title: dto.title,
+      voteAverage: dto.voteAverage?.toDouble(),
+      voteCount: dto.voteCount?.toInt(),
     );
   }
 }
