@@ -139,6 +139,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No Overview Available'**
   String get noOverviewAvailable;
+
+  /// No description provided for @showcase.
+  ///
+  /// In en, this message translates to:
+  /// **'Showcase'**
+  String get showcase;
 }
 
 class _AppLocalizationsDelegate

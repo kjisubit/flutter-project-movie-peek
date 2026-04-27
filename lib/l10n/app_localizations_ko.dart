@@ -28,4 +28,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noOverviewAvailable => '개요 데이터가 존재하지 않습니다.';
+
+  @override
+  String get showcase => '쇼케이스';
 }

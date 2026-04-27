@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_peek/l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movie_peek/l10n/app_localizations.dart';
 import 'package:movie_peek/presentation/blocs/navigation/navigation_bloc.dart';
 import 'package:movie_peek/presentation/blocs/navigation/navigation_event.dart';
 import 'package:movie_peek/presentation/blocs/navigation/navigation_state.dart';
 import 'package:movie_peek/presentation/feature/upcoming/upcoming_screen.dart';
 import 'package:movie_peek/theme/custom_theme_colors.dart';
 
+import '../showcase/showcase_screen.dart';
 import '../today_popular/today_popular_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -34,11 +35,13 @@ class HomeScreen extends StatelessWidget {
 Widget _buildBody(BuildContext context, int index) {
   switch (index) {
     case 0:
-      return TodayPopularScreen();
+      return const TodayPopularScreen();
     case 1:
-      return UpcomingScreen();
+      return const UpcomingScreen();
+    case 2:
+      return const ShowcaseScreen();
     default:
-      return TodayPopularScreen();
+      return const TodayPopularScreen();
   }
 }
 
@@ -133,6 +136,43 @@ Widget _buildBottomNavigationBar(BuildContext context, int index) {
           ],
         ),
         label: 'upcoming',
+      ),
+      BottomNavigationBarItem(
+        icon: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.science_outlined,
+              color: themeColors.onBackgroundInactive,
+            ),
+            const SizedBox(height: 3),
+            Text(
+              AppLocalizations.of(context)!.showcase,
+              style: TextStyle(
+                color: themeColors.onBackgroundInactive,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        activeIcon: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.science,
+              color: themeColors.primary,
+            ),
+            const SizedBox(height: 3),
+            Text(
+              AppLocalizations.of(context)!.showcase,
+              style: TextStyle(
+                color: themeColors.primary,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        label: 'showcase',
       ),
     ],
     currentIndex: index,

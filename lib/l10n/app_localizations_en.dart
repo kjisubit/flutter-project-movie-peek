@@ -28,4 +28,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get noOverviewAvailable => 'No Overview Available';
+
+  @override
+  String get showcase => 'Showcase';
 }
