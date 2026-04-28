@@ -31,4 +31,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get showcase => 'Showcase';
+
+  @override
+  String get nativeScreen => 'Native Screen';
+
+  @override
+  String get nativeScreenDesc =>
+      'Navigate to a screen built with native Android/iOS UI';
+
+  @override
+  String get platformView => 'Platform View';
+
+  @override
+  String get platformViewDesc =>
+      'Embed native UI components inside a Flutter screen';
 }

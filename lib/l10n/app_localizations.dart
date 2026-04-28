@@ -145,6 +145,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Showcase'**
   String get showcase;
+
+  /// No description provided for @nativeScreen.
+  ///
+  /// In en, this message translates to:
+  /// **'Native Screen'**
+  String get nativeScreen;
+
+  /// No description provided for @nativeScreenDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Navigate to a screen built with native Android/iOS UI'**
+  String get nativeScreenDesc;
+
+  /// No description provided for @platformView.
+  ///
+  /// In en, this message translates to:
+  /// **'Platform View'**
+  String get platformView;
+
+  /// No description provided for @platformViewDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Embed native UI components inside a Flutter screen'**
+  String get platformViewDesc;
 }
 
 class _AppLocalizationsDelegate

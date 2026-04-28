@@ -6,5 +6,9 @@
   "upcoming": "개봉 예정",
   "noTitle": "제목 없음",
   "noOverviewAvailable": "개요 데이터가 존재하지 않습니다.",
-  "showcase": "쇼케이스"
+  "showcase": "쇼케이스",
+  "nativeScreen": "네이티브 화면",
+  "nativeScreenDesc": "네이티브 Android/iOS UI로 만든 화면으로 이동",
+  "platformView": "플랫폼 뷰",
+  "platformViewDesc": "플러터 화면에 네이티브 UI 컴포넌트 삽입"
 }

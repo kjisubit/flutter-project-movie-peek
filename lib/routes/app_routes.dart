@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:movie_peek/presentation/feature/details/movie_details_screen.dart';
 import 'package:movie_peek/presentation/feature/home/home_screen.dart';
 import 'package:movie_peek/presentation/feature/intro/intro_screen.dart';
+import 'package:movie_peek/presentation/feature/showcase/platform_view_page.dart';
 import 'package:movie_peek/routes/route_list.dart';
 
 final List<RouteBase> goRoutes = <RouteBase>[
@@ -31,5 +32,10 @@ final List<RouteBase> goRoutes = <RouteBase>[
       final movieId = int.parse(movieIdStr);
       return MovieDetailsScreen(movieId: movieId);
     },
+  ),
+  GoRoute(
+    path: '/${RouteList.platformView}',
+    name: RouteList.platformView,
+    builder: (context, state) => const PlatformViewPage(),
   ),
 ];

@@ -31,4 +31,16 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get showcase => '쇼케이스';
+
+  @override
+  String get nativeScreen => '네이티브 화면';
+
+  @override
+  String get nativeScreenDesc => '네이티브 Android/iOS UI로 만든 화면으로 이동';
+
+  @override
+  String get platformView => '플랫폼 뷰';
+
+  @override
+  String get platformViewDesc => '플러터 화면에 네이티브 UI 컴포넌트 삽입';
 }

@@ -6,5 +6,9 @@
   "upcoming": "Upcoming",
   "noTitle": "No Title",
   "noOverviewAvailable": "No Overview Available",
-  "showcase": "Showcase"
+  "showcase": "Showcase",
+  "nativeScreen": "Native Screen",
+  "nativeScreenDesc": "Navigate to a screen built with native Android/iOS UI",
+  "platformView": "Platform View",
+  "platformViewDesc": "Embed native UI components inside a Flutter screen"
 }
