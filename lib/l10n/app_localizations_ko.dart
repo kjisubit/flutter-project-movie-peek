@@ -39,6 +39,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nativeScreenDesc => '네이티브 Android/iOS UI로 만든 화면으로 이동';
 
   @override
+  String get nativeScreenLoadError => '영화 정보를 불러오지 못했습니다.';
+
+  @override
   String get platformView => '플랫폼 뷰';
 
   @override

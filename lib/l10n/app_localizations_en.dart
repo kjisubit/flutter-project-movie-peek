@@ -40,6 +40,9 @@ class AppLocalizationsEn extends AppLocalizations {
       'Navigate to a screen built with native Android/iOS UI';
 
   @override
+  String get nativeScreenLoadError => 'Failed to load movie information.';
+
+  @override
   String get platformView => 'Platform View';
 
   @override

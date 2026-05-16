@@ -9,6 +9,7 @@
   "showcase": "Showcase",
   "nativeScreen": "Native Screen",
   "nativeScreenDesc": "Navigate to a screen built with native Android/iOS UI",
+  "nativeScreenLoadError": "Failed to load movie information.",
   "platformView": "Platform View",
   "platformViewDesc": "Embed native UI components inside a Flutter screen"
 }

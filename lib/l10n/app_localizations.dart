@@ -158,6 +158,12 @@ abstract class AppLocalizations {
   /// **'Navigate to a screen built with native Android/iOS UI'**
   String get nativeScreenDesc;
 
+  /// No description provided for @nativeScreenLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load movie information.'**
+  String get nativeScreenLoadError;
+
   /// No description provided for @platformView.
   ///
   /// In en, this message translates to:
