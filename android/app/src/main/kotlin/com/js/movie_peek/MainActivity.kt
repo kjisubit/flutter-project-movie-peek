@@ -33,5 +33,8 @@ class MainActivity : FlutterActivity() {
                     else -> result.notImplemented()
                 }
             }
+
+        flutterEngine.platformViewsController.registry
+            .registerViewFactory(NativeViewFactory.VIEW_TYPE, NativeViewFactory())
     }
 }
