@@ -1,6 +1,8 @@
 package com.js.movie_peek
 
 import android.content.Intent
+import com.js.movie_peek.nativescreen.NativeMovieActivity
+import com.js.movie_peek.platformview.NativeViewFactory
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel

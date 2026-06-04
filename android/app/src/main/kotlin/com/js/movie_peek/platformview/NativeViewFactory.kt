@@ -1,4 +1,4 @@
-package com.js.movie_peek
+package com.js.movie_peek.platformview
 
 import android.content.Context
 import io.flutter.plugin.common.StandardMessageCodec

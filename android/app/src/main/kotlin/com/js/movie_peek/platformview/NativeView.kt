@@ -1,4 +1,4 @@
-package com.js.movie_peek
+package com.js.movie_peek.platformview
 
 import android.content.Context
 import android.graphics.Color
@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.js.movie_peek.R
 import io.flutter.plugin.platform.PlatformView
 
 internal class NativeView(context: Context, id: Int, creationParams: Map<String?, Any?>?) : PlatformView {

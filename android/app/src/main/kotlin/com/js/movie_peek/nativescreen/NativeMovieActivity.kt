@@ -1,4 +1,4 @@
-package com.js.movie_peek
+package com.js.movie_peek.nativescreen
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
