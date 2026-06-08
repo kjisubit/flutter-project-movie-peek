@@ -10,6 +10,11 @@ import UIKit
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
 
+    if let registrar = self.registrar(forPlugin: "NativeViewPlugin") {
+      let factory = NativeViewFactory(messenger: registrar.messenger())
+      registrar.register(factory, withId: "com.js.movie_peek/native_view")
+    }
+
     let controller = window?.rootViewController as! FlutterViewController
     let channel = FlutterMethodChannel(
       name: "com.js.movie_peek/native",
