@@ -59,12 +59,8 @@ class NativeView: NSObject, FlutterPlatformView {
         label.font = .systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
 
-        let button = UIButton(type: .system)
+        let button = PrimaryButton(type: .system)
         button.setTitle("iOS Native Button", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = UIColor(red: 0.2, green: 0.5, blue: 1.0, alpha: 1.0)
-        button.layer.cornerRadius = 8
-        button.contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
         button.addTarget(self, action: #selector(onButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
 
