@@ -8,8 +8,8 @@ import 'package:movie_peek/l10n/app_localizations.dart';
 const _viewType = 'com.js.movie_peek/native_view';
 const _creationParams = {'padding': 16, 'itemSpacing': 12};
 
-class PlatformViewPage extends StatelessWidget {
-  const PlatformViewPage({super.key});
+class PlatformViewScreen extends StatelessWidget {
+  const PlatformViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
