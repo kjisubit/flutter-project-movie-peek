@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
-		1E56FD952FDD76FF00E7F267 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E56FD942FDD76FF00E7F267 /* PrimaryButton.swift */; };
-		1E87882D2FD6D83100BD86D7 /* NativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E87882C2FD6D83100BD86D7 /* NativeView.swift */; };
-		1EF10C862FBC888E0060D5AA /* NativeMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF10C852FBC888E0060D5AA /* NativeMovieViewController.swift */; };
+		1E7EB4A82FE2C82F00998246 /* NativeMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7EB4A72FE2C82F00998246 /* NativeMovieViewController.swift */; };
+		1E7EB4AB2FE2C83B00998246 /* NativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7EB4A92FE2C83B00998246 /* NativeView.swift */; };
+		1E7EB4AC2FE2C83B00998246 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E7EB4AA2FE2C83B00998246 /* PrimaryButton.swift */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3827FD0439D006CFC47103FA /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 785F4C6217F13D3D160EC87C /* Pods_RunnerTests.framework */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
@@ -47,9 +47,9 @@
 /* Begin PBXFileReference section */
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
-		1E56FD942FDD76FF00E7F267 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
-		1E87882C2FD6D83100BD86D7 /* NativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeView.swift; sourceTree = "<group>"; };
-		1EF10C852FBC888E0060D5AA /* NativeMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeMovieViewController.swift; sourceTree = "<group>"; };
+		1E7EB4A72FE2C82F00998246 /* NativeMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeMovieViewController.swift; sourceTree = "<group>"; };
+		1E7EB4A92FE2C83B00998246 /* NativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeView.swift; sourceTree = "<group>"; };
+		1E7EB4AA2FE2C83B00998246 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		1F14DFE7FABA049481CD8187 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		20D0FAE0B0E57E6133C4D8D5 /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
 		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
@@ -158,9 +158,9 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
-				1E56FD942FDD76FF00E7F267 /* PrimaryButton.swift */,
-				1E87882C2FD6D83100BD86D7 /* NativeView.swift */,
-				1EF10C852FBC888E0060D5AA /* NativeMovieViewController.swift */,
+				1E7EB4A92FE2C83B00998246 /* NativeView.swift */,
+				1E7EB4AA2FE2C83B00998246 /* PrimaryButton.swift */,
+				1E7EB4A72FE2C82F00998246 /* NativeMovieViewController.swift */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -390,10 +390,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
-				1E87882D2FD6D83100BD86D7 /* NativeView.swift in Sources */,
-				1E56FD952FDD76FF00E7F267 /* PrimaryButton.swift in Sources */,
 				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
-				1EF10C862FBC888E0060D5AA /* NativeMovieViewController.swift in Sources */,
+				1E7EB4A82FE2C82F00998246 /* NativeMovieViewController.swift in Sources */,
+				1E7EB4AB2FE2C83B00998246 /* NativeView.swift in Sources */,
+				1E7EB4AC2FE2C83B00998246 /* PrimaryButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
