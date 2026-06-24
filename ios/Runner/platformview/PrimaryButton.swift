@@ -13,9 +13,11 @@ class PrimaryButton: UIButton {
     }
 
     private func applyStyle() {
-        backgroundColor = UIColor(named: "AppPrimary")
-        setTitleColor(.white, for: .normal)
-        layer.cornerRadius = 8
-        contentEdgeInsets = UIEdgeInsets(top: 12, left: 16, bottom: 12, right: 16)
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = UIColor(named: "AppPrimary")
+        config.baseForegroundColor = .white
+        config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
+        config.background.cornerRadius = 8
+        configuration = config
     }
 }
