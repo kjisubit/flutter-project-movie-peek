@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="native_label">Android Text View</string>
+    <string name="native_button">Android Button</string>
+    <string name="native_button_clicked">Button touched!</string>
+    <string name="rating">Rating: %s</string>
+</resources>

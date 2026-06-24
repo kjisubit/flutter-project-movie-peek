@@ -30,17 +30,17 @@ internal class NativeView(context: Context, id: Int, creationParams: Map<String?
         }
 
         val textView = TextView(context).apply {
-            text = "Android Native Text View"
+            text = context.getString(R.string.native_label)
             textSize = 16f
             setTextColor(Color.BLACK)
         }
 
         val button = Button(context).apply {
-            text = "Android Native Button"
+            text = context.getString(R.string.native_button)
             setTextColor(Color.WHITE)
             setBackgroundResource(R.drawable.bg_native_button)
             setOnClickListener {
-                Toast.makeText(context, "Native button clicked!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, context.getString(R.string.native_button_clicked), Toast.LENGTH_SHORT).show()
             }
         }
 
