@@ -54,13 +54,13 @@ class NativeView: NSObject, FlutterPlatformView {
         view.backgroundColor = .white
 
         let label = UILabel()
-        label.text = "iOS Native Label"
+        label.text = NSLocalizedString("ios_native_label", comment: "")
         label.textColor = .black
         label.font = .systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
 
         let button = PrimaryButton(type: .system)
-        button.setTitle("iOS Native Button", for: .normal)
+        button.setTitle(NSLocalizedString("ios_native_button", comment: ""), for: .normal)
         button.addTarget(self, action: #selector(onButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
 
@@ -84,7 +84,7 @@ class NativeView: NSObject, FlutterPlatformView {
 
         let alert = UIAlertController(
             title: nil,
-            message: "Native button clicked!",
+            message: NSLocalizedString("ios_native_button_clicked", comment: ""),
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: "OK", style: .default))

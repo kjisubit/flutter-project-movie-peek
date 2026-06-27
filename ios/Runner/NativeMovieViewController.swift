@@ -37,14 +37,14 @@ class NativeMovieViewController: UIHostingController<NativeMovieViewController.C
               .font(.title2)
               .bold()
 
-            Text("Rating: \(String(format: "%.1f", rating))")
+            Text(String(format: NSLocalizedString("rating_format", comment: ""), String(format: "%.1f", rating)))
               .font(.body)
           }
           .padding(16)
         }
         .toolbar {
           ToolbarItem(placement: .topBarLeading) {
-            Button("Close") { dismiss() }
+            Button(NSLocalizedString("close", comment: "")) { dismiss() }
           }
         }
       }
