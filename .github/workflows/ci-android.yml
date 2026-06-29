@@ -1,0 +1,144 @@
+name: Flutter Android CI Pipeline
+
+run-name: ${{ github.actor }} triggered Flutter Android CI pipeline
+
+on:
+  pull_request:
+    branches:
+      - master
+      - develop
+
+env:
+  FLUTTER_VERSION: 3.32.8
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: ./.github/actions/setup-flutter
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
+      # lint 단계에서 pubspec.yaml에 정의한 env 파일 존재 여부를 체크하므로 필요
+      - name: Setup .env file
+        uses: ./.github/actions/setup-env
+        with:
+          tmdb-api-key: ${{ secrets.TMDB_API_KEY }}
+
+      - name: Run Lint (flutter analyze)
+        run: flutter analyze > lint-report.txt
+      
+      - name: Upload Lint Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-lint-report
+          path: lint-report.txt
+        continue-on-error: true
+
+  unit-test:
+    name: Unit Test
+    runs-on: ubuntu-latest
+    needs: lint
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: ./.github/actions/setup-flutter
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
+      - name: Setup .env file
+        uses: ./.github/actions/setup-env
+        with:
+          tmdb-api-key: ${{ secrets.TMDB_API_KEY }}
+
+      - name: Run Unit Tests
+        run: flutter test > test-report.txt
+
+      - name: Upload Unit Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-unit-test-report
+          path: test-report.txt
+        continue-on-error: true
+
+  build-android:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    needs: unit-test
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: ./.github/actions/setup-flutter
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
+      - name: Setup .env file
+        uses: ./.github/actions/setup-env
+        with:
+          tmdb-api-key: ${{ secrets.TMDB_API_KEY }}
+
+      - name: Setup Java
+        uses: ./.github/actions/setup-java
+        
+      - name: Cache Gradle
+        uses: ./.github/actions/cache-gradle
+
+      - name: Build APK
+        run: flutter build apk --debug
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
+        continue-on-error: true
+
+  integration-test:
+    name: Integration Test
+    runs-on: ubuntu-latest
+    needs: build-android
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+  
+      - name: Setup Flutter
+        uses: ./.github/actions/setup-flutter
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+  
+      - name: Setup .env file
+        uses: ./.github/actions/setup-env
+        with:
+          tmdb-api-key: ${{ secrets.TMDB_API_KEY }}
+  
+      - name: Run Integration Test on Emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 33
+          target: google_apis
+          arch: x86_64
+          profile: pixel_5
+          script: flutter test integration_test > integration-test-report.txt
+
+      - name: Upload Integration Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: flutter-integration-test-report
+          path: integration-test-report.txt
+        continue-on-error: true
